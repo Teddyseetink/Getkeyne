@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="maincontent">
+        <div class="title">
+            <h1>Teddy Hub Key System</h1>
+            <h3>Completed 0 of 1</h3>
+            <p>Click continue, pop-ups/ads may show and they can be annoying, but they directly support the creators of this link.</p>
+        </div>
+        <div class="somebuttons">
+            <div class="continue">
+                <a href="#" class="bcontinue" onclick="to()">Coninue</a>
+            </div>
+            <div class="tutorial">
+                <a href="#" class="btutorial">Video Tutorial</a>
+            </div>
+            <div class="discord">
+                <a href="https://discord.gg/pkAQt56uBc" class="bdiscord">Server Discord</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const textbox = document.getElementById("textbox")
+        const clicktocopy = document.getElementById("aaaa")
+        const prams = new URL(window.location.href).searchParams;
+        let abc = "/index.html"
+        if (prams.get("key")) {
+            textbox.innerHTML = prams.get("key")
+        } else if (prams.get("redirect")) {
+            abc = "https://link4m.com/"+ prams.get("redirect")
+        }
+        async function copyToClipboard() {
+        try {
+            await navigator.clipboard.writeText(prams.get("key"));
+            clicktocopy.innerHTML = "Copied Key"
+            clicktocopy.className = "bcontinuee2"
+            setTimeout(function() {
+                clicktocopy.innerHTML = "Click to copy"
+                clicktocopy.className = "bcontinuee"
+            }, 2000);
+        } catch (err) {
+        }
+        }
+
+        function to() {
+            window.location.href = abc
+        }
+    </script>
+</body>
+</html>
